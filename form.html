@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Bootstrap 4.5 CSS-->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+<!-- Bootstrap JS Requirements -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var subjectObject = {
+          "VOLKSWAGEN": {
+            "GOLF 7": ["compacte","berline","citadine","autres","Coupe"],
+            "GOLF 6": ["berline", "citadine", "compacte", "Coupe","autres"],
+            "POLO": ["citadine", "berline", "compacte", "Coupe", "autres"],
+            "PASSAT CC":["berline", "Coupe"],
+            "PASSAT":["berline", "citadine"] ,
+            "TOUAREG":["4 x 4"] , 
+            "GOLF 5" :["citadine", "berline", "compacte"] , 
+            "TOURAN":["citadine", "monospace"] , 
+            "CADDY":["utilitaire" ] , 
+            "AMAROK" :["pick up", "4 x 4"], 
+            "JETTA" :["berline", "compacte"], 
+            "NEW BEETLE":["Coupe", "compacte"] , 
+            "TIGUAN":["4 x 4"] , 
+            "TRANER FOURGON 6.1" :["utilitaire"] , 
+            "UP" :["citadine"] , 
+            "LT" :["utilitaire"] , 
+            "GOLF 4" :["cabriolet"], 
+            "GOLF 3":["citadine"]
+          },
+          "JAGUAR": {
+            "XE": ["berline", "citadine"],
+            "XF": ["berline"],
+            "XJ": ["berline"],
+            "X-TYPE": ["berline"]
+          },
+          "MERCEDES-BENZ":{
+            "CLASSE E" :["Coupe", "berline", "citadine", "compacte", "cabriolet"], 
+            "CLASSE S" :["berline", "citadine"], 
+            "CLASSE C":["berline", "utilitaire", "Coupe", "cabriolet", "compacte", "citadine"] , 
+            "CLASSE A":["autres", "compacte", "berline", "citadine", "Coupe", "monospace"] , 
+            "GLA":["4 x 4", "compacte"] , 
+            "GLC":["berline", "Coupe"] , 
+            "CLS" :["berline", "Coupe"], 
+            "ML" :["4 x 4", "pick up"], 
+            "SPRINTER" :["utilitaire"], 
+            "CLASSE GL" :["4 x 4"], 
+            "CLA":["berline", "autres", "Coupe", "compacte"] , 
+            "220":["berline"] , 
+            "250":["berline"] , 
+            "200" :["berline", "citadine"], 
+            "GLE" :["berline", "4 x 4"], 
+            "CLASSE V":["utilitaire"] ,
+             "CLK":["Coupe"] , 
+             "CLASSE B":["compacte"]
+          },
+          "PORSCHE":{
+            "CAYENNE":["4 x 4", "citadine"] , 
+            "MACAN":["4 x 4", "citadine"] , 
+            "PANAMERA":["berline"]
+          },
+          "MG":{
+            "ZS":["pick up", "4 x 4"] , 
+            "GS" :["4 x 4"], 
+            "HS":["4 x 4"] ,
+            "6" :["berline"],
+            "5":["berline"] ,
+            "3":["berline"] 
+          },
+          "MAZDA":{
+          "3":["Berline"] ,
+          "BT-50":["pick up", "4 x 4"] , 
+          "6" :["berline"], 
+          "CX-7":["citadine", "compacte", "berline"] , 
+          "2":["Berline"] , 
+          "CX-5":["4 x 4"] , 
+          "CX-9":["4 x 4"] 
+          },
+          "BMW":{
+            "SÃÂRIE 3":["berline", "Coupe", "compacte", "citadine", "cabriolet"]  ,
+            "X6":["4 x 4"] , 
+            "SÃÂRIE 5":["berline"] , 
+            "SÃÂRIE 1":["citadine", "Coupe", "compacte", "berline"] , 
+            "SÃÂRIE 4" :["berline", "Coupe" ], 
+            "X5":["4 x 4"] , 
+            "X1":["4 x 4", "berline"] , 
+            "X3" :["4 x 4"], 
+            "X2":["4 x 4", "compacte"] , 
+            "SÃÂRIE 7":["berline"] , 
+            "X4":["4 x 4", "pick up"] , 
+            "SÃÂRIE 2":["berline"] , 
+            "M1":["berline"]
+          },
+          "MINI":{
+            "COOPER":["compacte", "citadine", "Coupe"] ,
+            "COOPER S":["cabriolet"] ,
+            "COOPER COUNTRY MAN":["citadine",  "compacte"] 
+          },
+          "AUDI":{
+            "Q7":["4 x 4", "citadine"] ,
+            "Q5":["4 x 4", "citadine", "berline"] , 
+            "A4":["berline", "citadine"] , 
+            "Q3":["4 x 4", "citadine", "monospace", "autres", "compacte"] , 
+            "A5" :["Coupe", "berline"], 
+            "A3":["citadine", "berline", "compacte"] , 
+            "A8" :["berline"], 
+            "A6":["berline"] , 
+            "TT":["citadine", "Coupe"] , 
+            "Q2" :["berline",  "citadine", "compacte", "pick up", "4 x 4"], 
+            "A1":["compacte", "citadine"] 
+          },
+          "VOLVO":{
+            "S80":["berline"] ,
+            "V70":["autres"] , 
+            "S60" :["berline"], 
+            "V40 CROSS COUNTRY":["berline"]
+          },
+          "KIA":{
+            "RIO":["berline", "compacte", "citadine", "Coupe" ] ,
+            "CERATO":["berline"] , 
+            "AGE":["4 x 4", "citadine", "compacte", "berline"] , 
+            "OPTIMA":["berline"] , 
+            "K2700" :["utilitaire", "pick up", "4 x 4"], 
+            "PICANTO":["citadine", "compacte", "berline"] , 
+            "SORENTO":["4 x 4"] , 
+            "SOUL":["citadine"]
+          },
+          "TOYOTA":{
+            "PRADO":["4 x 4"] ,
+            "LAND CRUISER":["4 x 4"] , 
+            "YARIS":["berline", "citadine",  "compacte", "Coupe"], 
+            "HILUX":["pick up", "4 x 4"] ,
+            "C-HR":["citadine", "4 x 4", "monospace"] ,
+            "RAV 4":["4 x 4"] ,
+            "AVANZA":["autres"] ,
+            "COROLLA":["berline"] 
+          },
+          "JEEP":
+          {
+            "CHEROKEE":["4 x 4"] ,
+            "COMPASS":["4 x 4"] , 
+            "RENEGADE":["4 x 4"] 
+          },
+          "FORD":{
+            "FIESTA":["citadine", "compacte", "berline"] , 
+            "RANGER":["4 x 4", "pick up"] ,
+            "FOCUS":["berline", "citadine", "compacte", "Coupe"] , 
+            "FUSION":["berline", "citadine", "Coupe"] , 
+            "ECO":["monospace", "4 x 4"] , 
+            "KA":["citadine",  "compacte"] , 
+            "FIGO":["compacte"] , 
+            "EXPLORER":["4 x 4"] ,  
+            "KUGA" :["4 x 4"], 
+            "MONDEO":["MONDEO"]
+          },
+          "FIAT":{
+            "PANDA":["citadine"] , 
+            "500":["citadine", "compacte"] , 
+            "DOBLO":["utilitaire"] , 
+            "500X":["citadine"] , 
+            "PANDA CITY CROSS":["citadine"] , 
+            "FIORINO" :["utilitaire"], 
+            "TIPO":["berline"]  , 
+            "GRANDE PUNTO" :["citadine", "compacte", "berline"], 
+            "PALIO":["citadine"] , 
+            "PUNTO":["citadine"] , 
+            "DUCATO":["utilitaire"] , 
+            "SIENA":["compacte", "berline"] , 
+            "QUBO":["berline"] , 
+            "PUNTO CLASSIC":["citadine"], 
+            "PUNTO EVO":["citadine"] , 
+            "PUNTO POP":["citadine"]
+          },
+          "LANDROVER":{
+            "RANGE ROVER":["4 x 4", "compacte", "berline", "pick up"]  ,  
+            "DISCOVERY":["4 x 4"]  , 
+            "DEFENDER":["4 x 4", "pick up"]  , 
+            "FREELANDER":["4 x 4"]    
+          },
+          "SEAT":{
+            "ATECA":["4 x 4"] , 
+            "LEON" :["citadine", "berline", "compacte", "Coupe" ], 
+            "ARONA":["citadine"] , 
+            "ALTEA":["citadine", "monospace"] , 
+            "IBIZA":["citadine", "compacte"] , 
+            "EXEO":["berline"] 
+          },
+          "HYUNDAI":{
+            "H-1":["pick up"] , 
+            "I20":["citadine", "Coupe"] , 
+            "GRAND I10":["citadine", "compacte", "berline"] , 
+            "ACCENT":["berline"] , 
+            "ELANTRA":["berline"] , 
+            "SANTA FE" :["4 x 4"], 
+            "IX35":["4 x 4"] , 
+            "VELOSTER":["berline", "citadine", "Coupe"] , 
+            "I10":["compacte", "citadine", "Coupe", "berline"] , 
+            "CRETA":["Coupe"] 
+          },
+          "WALLYSCAR":{
+            "IRIS":["4 x 4", "cabriolet"]
+          },
+          "PEUGEOT":{
+            "2008":["4 x 4", "compacte", "autres", "berline", "citadine"] , 
+            "301":["berline",  "compacte", "citadine"] , 
+            "407":["berline", "citadine"] , 
+            "206":["berline", "citadine", "compacte"] , 
+            "208":["citadine", "compacte"] , 
+            "107":["citadine"] , 
+            "BIPPER":["utilitaire", "monospace"] , 
+            "3008":["citadine", "monospace","utilitaire"] , 
+            "RIFTER":["utilitaire"] , 
+            "EXPERT":["utilitaire"] , 
+            "PICKUP":["pick up"] , 
+            "308":["compacte", "berline", "citadine"] , 
+            "4008":["compacte"] , 
+            "207":["compacte", "Coupe", "citadine"] , 
+            "508":["berline"] , 
+            "206+":["berline", "citadine"] , 
+            "PARTNER":["utilitaire", "berline"] , 
+            "406":["Coupe"] , 
+            "1007":["citadine"] , 
+            "106" :["berline", "citadine", "Coupe"], 
+            "307" :["compacte"], 
+            "PARTNER TEPEE" :["monospace"], 
+            "PARTNER ORIGIN" :["berline"], 
+            "5008":["monospace"] 
+          },
+          "CITROÃÂN":{
+            "C4":["compacte", "citadine", "berline", "monospace", "Coupe"] , 
+            "DS3":["citadine", "compacte", "cabriolet"] , 
+            "DS5":["citadine", "berline"] , 
+            "C5":["berline", "citadine"] , 
+            "DS4":["citadine"] , 
+            "BERLINGO":["utilitaire", "monospace"]  , 
+            "NEMO":["utilitaire"] , 
+            "C3":["citadine",  "compacte", "berline"] , 
+            "C-ELYSÃÂE":["compacte", "berline", "citadine"] , 
+            "C1" :["citadine", "compacte"], 
+            "AX":["citadine"] , 
+            "JUMPY COMBI":["monospace"] , 
+            "JUMPER":["utilitaire"] 
+          },
+          "RENAULT":{
+            "KADJAR":["4 x 4", "citadine",  "monospace"] , 
+            "TWINGO":["citadine", "compacte"] , 
+            "CLIO CAMPUS":["citadine"] , 
+            "MEGANE":["citadine", "compacte", "Coupe", "berline", "utilitaire"] , 
+            "LAGUNA":["citadine"] , 
+            "CLIO CLASSIC":["berline"] , 
+            "MODUS":["compacte"] , 
+            "FLUENCE":["berline"] , 
+            "CLIO":["berline", "citadine", "utilitaire", "Coupe", "compacte"] , 
+            "SYMBOL":["berline", "citadine"] , 
+            "R 19":["citadine"] , 
+            "CAPTUR":["monospace", "autres"] , 
+            "KANGOO":["monospace"] , 
+            "LATITUDE":["berline"] , 
+            "R 9":["berline"] , 
+            "MASTER":["autres"] 
+          },
+          "HAVAL":{
+            "H6":["4 x 4", "monospace", "berline", "autres"] ,
+            "H9":["4 x 4"] , 
+            "H2":["4 x 4", "autres"] 
+          },
+          "SUZUKI":{
+            "SWIFT":["citadine"] , 
+            "VITARA":["4 x 4", "autres"] , 
+            "BALENO":["compacte"] , 
+            "CIAZ":["berline"]
+          },
+          "SSANGYONG":{
+            "ACTYON S":["pick up", "4 x 4"], 
+            "TIVOLI":["citadine", "autres"] , 
+            "XLV":["4 x 4", "autres"] , 
+            "KORANDO":["4 x 4"] 
+          },
+          "MITSUBISHI":{
+            "PAJERO":["4 x 4"] , 
+            "MIRAGE":["citadine"] , 
+            "SPACE STAR":["monospace"] , 
+            "L200 DOUBLE CABINE":["pick up"] 
+          },
+          "HUMMER":{
+            "H2":["4 x 4", "autres"]
+          },
+          "CADILLAC":{
+            "ESCALADE":["pick up"] 
+          },
+          "CHEVROLET":{
+            "AVEO":["berline", "Coupe"] , 
+            "CRUZE":["berline"] , 
+            "SONIC":["berline"] , 
+            "SILVERADO":["pick up"] , 
+            "CAPTIVA":["4 x 4"] , 
+            "SPARK":["compacte", "utilitaire", "citadine"]
+          },
+          "MAHINDRA":{
+            "KUV 100":["citadine", "cabriolet"] 
+          },
+          "CHERY":{
+            "E3":["berline"] , 
+            "QQ":["citadine"] , 
+            "TIGGO 2":["4 x 4", "pick up", "autres"] , 
+            "ARRIZO 5":["citadine", "berline"] , 
+            "TIGGO 3":["pick up"] 
+          },
+          "BAIC":{
+            "YX KENBO S3":["4 x 4"] , 
+            "YX KENBO S2":["4 x 4", "autres", "berline", "utilitaire"]
+          },
+          "DACIA":{
+            "DUSTER":["4 x 4", "citadine"] , 
+            "SANDERO":["autres", "citadine"] , 
+            "DOKKER":["autres", "utilitaire"] , 
+            "LOGAN MCV":["berline"] , 
+            "LOGAN":["autres"] 
+          },
+          "LANCIA":{
+            "YPSILON":["citadine"]
+
+          },
+          "NISSAN":{
+            "QASHQAI":["4 x 4", "Coupe", "autres", "citadine", "monospace", "utilitaire"] , 
+            "JUKE":["citadine", "monospace", "4 x 4", "compacte", "autres"] , 
+            "PATROL":["4 x 4"] , 
+            "MICRA":["citadine"] , 
+            "ARMADA":["4 x 4"] , 
+            "SUNNY" :["berline"], 
+            "NAVARA" :["4 x 4"], 
+            "MURANO":["4 x 4"] , 
+            "X-TRAIL":["4 x 4"]
+          },
+          "TATA":{
+            "XENON":["pick up", "4 x 4", "utilitaire"]
+          },
+          "IVECO":{
+            "DAILY":["utilitaire", "autres"]
+          },
+          "DONGFENG":{
+            "S50":["autres", "berline"] 
+          },
+          "GREAT":{
+            "WALL H5":["4 x 4", "monospace"] , 
+            "WALL M4":[ "berline", "compacte", "citadine","autres"] , 
+            "WALL C30":["berline"] 
+          },
+          "ISUZU":{
+            "D-MAX":["pick up", "autres"] 
+          },
+          "CHRYSLER":{
+            "300C":["berline", "autres"] 
+          },
+          "SKODA":{
+            "OCTAVIA":["berline", "compacte"] , 
+            "FABIA":["citadine"] 
+          },
+          "INFINITI":{
+            "G35":["berline"]
+          },
+          "OPEL":{
+            "ASTRA":["compacte", "Coupe", "citadine", "berline"] , 
+            "ADAM":["citadine"] , 
+            "CORSA":["berline", "citadine"] 
+          },
+          "ALFA":{
+            "ROMEO GIULIETTA":["compacte"] , 
+            "ROMEO MITO":["compacte"] 
+          },
+          "HONDA":{
+            "HR-V":["autres"]
+          },
+          "SMART":{
+            "FORFOUR":["citadine"]
+          },
+          "DFSK":{
+            "K01":["utilitaire"]
+          },
+          "SUBARU":{
+            "IMPREZA":["4 x 4"]
+          },
+          "DODGE":{
+            "AVENGER":["berline"]
+          }
+
+          
+        }
+        window.onload = function() {
+          var marquetSel = document.getElementById("brand");
+          var modelSel = document.getElementById("model");
+          var carrosserieSel = document.getElementById("carrosserie");
+          for (var x in subjectObject) {
+            marquetSel.options[marquetSel.options.length] = new Option(x, x);
+          }
+          marquetSel.onchange = function() {
+            //empty carrosseries- and models- dropdowns
+            carrosserieSel.length = 1;
+            modelSel.length = 1;
+            //display correct values
+            for (var y in subjectObject[this.value]) {
+              modelSel.options[modelSel.options.length] = new Option(y, y);
+            }
+          }
+          modelSel.onchange = function() {
+            //empty carrosseries dropdown
+            carrosserieSel.length = 1;
+            //display correct values
+            var z = subjectObject[marquetSel.value][this.value];
+            for (var i = 0; i < z.length; i++) {
+              carrosserieSel.options[carrosserieSel.options.length] = new Option(z[i], z[i]);
+            }
+          }
+        }        
+       
+       </script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>
+
+</head>
+<body>
+  
+ 
+ 
+  <section class="contact-form">
+      
+        
+        <form>
+            Marques: <select name="brand" id="brand">
+                <option value="" selected="selected">Select brand</option>
+              </select>
+              <br><br>
+            Models: <select name="model" id="model">
+                <option value="" selected="selected">Please select model</option>
+              </select>
+              <br><br>
+            carrosserie: <select name="carrosserie" id="carrosserie">
+                <option value="" selected="selected">Please select carrosserie</option>
+              </select>
+              <br><br>
+             
+              energie:<select name="energie" id="energie">
+                <option value="essence" >essence</option>
+                <option value="disel" >disel</option>
+
+              </select>
+              <br><br>
+          <div class="input-group">
+            <label for="name">couleur</label>
+            <input id="couleur" name="couleur" type="text"/>
+          </div>
+        
+          <div class="btn-group bootstrap-select">
+            <select  class="custom-select"  name="transmission" data-width="100%" tabindex="-98">
+                <option >Transmission</option>
+                <option value="traction"> Traction</option>
+                <option value="intégrale"> Integrale</option>
+                <option value="propulsion"> Propulsion</option>
+                
+              </select>
+        </div>
+        <br><br>
+        <div class="btn-group bootstrap-select">
+            <select name="boite" class="custom-select" data-width="100%" tabindex="-98">
+                <option selected value="Boite Vitesse">Boite Vitesse</option>
+                <option value="automatique"> Automatique</option>
+                <option value="manuelle"> Manuelle</option>
+                
+              </select>
+        </div>
+        <br><br>
+        <div class="btn-group bootstrap-select">
+
+            <input type="number" placeholder="Age" name="age" class="selectpicker select-picker-input" >
+        </div>
+        <br><br>
+
+        <div class="btn-group bootstrap-select">
+            <input type="number" step="0.001" placeholder="Kilométrage" class="selectpicker select-picker-input" name="kilometrage">
+        </div><br><br>
+
+        <div class="btn-group bootstrap-select">
+            <input formControlName="puissance_fisc" type="number" step="0.1" placeholder="Puissance" class="selectpicker select-picker-input" name="puissance">
+        </div><br><br>
+        
+        
+        
+          <div class="input-group">
+            <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+              submit
+            </button> 
+          
+        </form>
+      </section>
+      
+      <div class="results">
+     
+        <pre></pre>
+      </div>
+      <script>
+          function handleFormSubmit(event) {
+  event.preventDefault();
+  
+  const data = new FormData(event.target);
+  
+  const formJSON = Object.fromEntries(data.entries());
+
+  // for multi-selects, we need special handling
+  const results = document.querySelector('.results pre');
+  console.log(JSON.stringify(formJSON));
+  const headers = {'Content-Type':'application/json',
+                   'Access-Control-Allow-Origin':'*',
+                   'Access-Control-Allow-Methods':'POST'}
+         
+  fetch('https://otocar-price-predict.herokuapp.com/prediction', {
+  method: "Post",
+  
+
+  headers:{'Content-Type':'application/json'},
+  body:JSON.stringify(formJSON)
+})
+.then(response => response.json()).then(json => document.getElementById("demo").innerHTML=json["prediction"]);
+}
+const form = document.querySelector('.contact-form');
+form.addEventListener('submit', handleFormSubmit);
+      </script>
+
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div id="demo" class="modal-body">
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
