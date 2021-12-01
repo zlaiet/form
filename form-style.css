@@ -1,49 +1,181 @@
-.contact-form {
-    position: absolute;
-    width: 449px;
-    height: 670px;
-    left: 872px;
-    top: 178px;
-    background: #FFFFFF;
-    box-shadow: 0px 6px 30px rgba(0, 0, 0, 0.08);
-    border-radius: 8px;
-}
 
-.ttl {
-    margin-bottom: 20px;
-    margin-top: 20px;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 23px;
-    color: #000000;
-    text-align: -webkit-center;
-}
+        .popup {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            bottom: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 2;
+            visibility: hidden;
+            opacity: 0;
+            overflow: hiden;
+            transition: .64s ease-in-out;
+        }
 
-.select {
-    width: 313px;
-    height: 40px;
-    text-align: -webkit-center;
-    display: block;
-    margin: 0 auto;
-    border: 1px solid #000000;
-    box-sizing: border-box;
-    border-radius: 8px;
-    margin-bottom: 20px;
-}
+        .popup-inner {
+            position: relative;
+            bottom: -100vw;
+            right: -100vh;
+            display: flex;
+            align-items: center;
+            max-width: 800px;
+            max-height: 600px;
+            width: 60%;
+            height: 80%;
+            background-color: #fff;
+            transform: rotate(32deg);
+            transition: .64s ease-in-out;
+        }
 
-.btn-estimer {
-    margin: 0 auto;
-    background: #282F75;
-    border-radius: 8px;
-    width: 313px;
-    height: 40px;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 19px;
-    /* identical to box height */
-    color: #FFFFFF;
-}
+        .popupphoto {
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            width: 40%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .popupphoto img {
+            width: auto;
+            height: 100%;
+        }
+
+        .popuptext {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 60%;
+            height: 100%;
+            padding: 4rem;
+            font-family: Roboto;
+
+            font-style: normal;
+            font-weight: normal;
+            font-size: 18px;
+            line-height: 21px;
+        }
+
+        .popuptext h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            color: #0A0A0A;
+        }
+
+        .popuptext p {
+            font-size: .875rem;
+            color: #686868;
+            line-height: 1.5;
+        }
+
+        .popuptext a {
+            text-decoration: none;
+            color: #47BDFF;
+        }
+
+        .popup:target {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .popup:target .popup-inner {
+            bottom: 0;
+            right: 0;
+            transform: rotate(0);
+        }
+
+        .closepopup {
+            position: absolute;
+            right: -1rem;
+            top: -1rem;
+            width: 3rem;
+            height: 3rem;
+            font-size: .875rem;
+            font-weight: 300;
+            border-radius: 100%;
+            background-color: #47BDFF;
+            z-index: 4;
+            color: #fff;
+            line-height: 3rem;
+            text-align: center;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .contact-form {
+
+            width: auto;
+            height: fit-content;
+            left: 872px;
+            top: 178px;
+            background: #FFFFFF;
+            box-shadow: 0px 6px 30px rgba(0, 0, 0, 0.08);
+            border-radius: 8px;
+        }
+
+        .ttl {
+            padding-top: 20px;
+            margin-bottom: 20px;
+            margin-top: 20px;
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 23px;
+            color: #000000;
+            text-align: -webkit-center;
+        }
+
+        .select {
+            width: 313px;
+            height: 40px;
+            text-align: -webkit-center;
+            display: block;
+            margin: 0 auto;
+            border: 1px solid #000000;
+            box-sizing: border-box;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .btn-estimer {
+            margin: 0 auto;
+            background: #282F75;
+            border-radius: 8px;
+            width: 313px;
+            height: 40px;
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 19px;
+            /* identical to box height */
+            color: #FFFFFF;
+        }
+        
+        .modal-content {
+            flex-direction: unset !important;
+            width: 900px !important;
+
+        }
+
+        .tnd {
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 38px;
+            line-height: 56px;
+            flex: 1;
+            
+        }
+        .pricecontainer{
+            display: flex;
+            padding-top: inherit;
+        }
+      
